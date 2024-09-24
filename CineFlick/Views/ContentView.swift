@@ -23,7 +23,8 @@ struct ContentView: View {
   }
   
   var body: some View {
-      List(movies) { movie in
+    List(movies) { movie in
+      NavigationLink(destination: DetailView(movie: movie)) {
         HStack {
           AsyncImage(url: movie.poster) { image in
             image.resizable()
@@ -36,14 +37,16 @@ struct ContentView: View {
           Text(movie.title)
         }
       }
+      }.listStyle(.plain)
       
-      .onAppear(perform: setupSearchPublisher)
-      .searchable(text: $search)
-      .onChange(of: search) {
-        searchSubject.send(search)
-      }
+        .onAppear(perform: setupSearchPublisher)
+        .searchable(text: $search)
+        .onChange(of: search) {
+          searchSubject.send(search)
+        }
     }
   }
+
 
 
 #Preview {

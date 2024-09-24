@@ -13,12 +13,31 @@ struct DetailView: View {
    let movie: Movie
   
   var body: some View {
-    
-    
-    Text(movie.title)
-    
+    VStack {
+      Text(movie.title)
+        .font(.largeTitle)
+      Text(movie.year)
+        .font(.title)
+      AsyncImage(url: movie.poster) { image in
+        image
+          .resizable()
+          .scaledToFit()
+        
+      } placeholder: {
+        ProgressView()
+      }
+      Spacer()
+      VStack {
+        
+      }
+      Text("IMBD ID: \(movie.imdbId)")
+      
+      Text(movie.plot ?? "")
+    }
+    .padding()
   }
-}
+  }
+
 
 
 
