@@ -10,8 +10,10 @@ import SwiftUI
 @main
 struct CineFlickApp: App {
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+      WindowGroup {
+        NavigationStack {
+          ContentView(httpClient: HTTPClient())
         }
+      }
     }
 }
