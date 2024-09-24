@@ -29,3 +29,13 @@ struct Movie: Identifiable,Codable {
     case poster = "Poster"
   }
 }
+
+
+
+
+extension Movie {
+  static var example: Movie { Movie(title: "The Shawshank Redemption", year: "1994", imdbId: "tt0111161", poster: URL(string: "https://m.media-amazon.com/images/M/MV5BMTI4MjUxNjc0OV5BMl5BanBnXkFtZTcwODM0MTk2MQ@@._V1_SX300.jpg"))
+    
+    
+  }
+}
